@@ -1,11 +1,12 @@
 package com.sky.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.sky.user.domain.dto.EmployeeUpdateDTO;
 import common.result.PageResult;
-import com.sky.user.domain.VO.EmployeeLoginVO;
-import com.sky.user.domain.VO.EmployeeVO;
+import com.sky.user.domain.vo.EmployeeLoginVO;
+import com.sky.user.domain.vo.EmployeeVO;
 import com.sky.user.domain.dto.EditPasswordDTO;
-import com.sky.user.domain.dto.EmployeeDTO;
+import com.sky.user.domain.dto.EmployeeInsertDTO;
 import com.sky.user.domain.dto.EmployeeLoginDTO;
 import com.sky.user.domain.po.Employee;
 
@@ -36,9 +37,9 @@ public interface EmployeeService extends IService<Employee> {
 
     PageResult<Employee> getPage(String name, Integer page, Integer pageSize);
 
-    void insertEmployee(EmployeeDTO dto);
+    void insertEmployee(EmployeeInsertDTO dto);
 
     EmployeeVO getEmployeeById(Long id);
 
-    void updateEmployee(EmployeeDTO dto);
+    void updateEmployee(EmployeeUpdateDTO dto);
 }

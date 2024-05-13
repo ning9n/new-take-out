@@ -1,7 +1,9 @@
-package com.sky.user.domain.VO;
+package com.sky.user.domain.vo;
+
+import lombok.Data;
 
 import java.time.LocalDateTime;
-
+@Data
 public class EmployeeVO {
     //id
     private Long id;

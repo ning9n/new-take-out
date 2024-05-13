@@ -33,8 +33,8 @@ public class Employee implements Serializable {
 
     private Long updateUser;
 
-    //账号类型，商家、管理员、用户
-    private String type;
+    //权限 商家、管理员、员工
+    private String permission;
     //所属商家
     private Long merchantId;
 }

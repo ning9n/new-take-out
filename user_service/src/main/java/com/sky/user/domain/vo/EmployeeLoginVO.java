@@ -1,4 +1,4 @@
-package com.sky.user.domain.VO;
+package com.sky.user.domain.vo;
 
 import lombok.Builder;
 import lombok.Data;

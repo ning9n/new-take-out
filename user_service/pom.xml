@@ -46,11 +46,6 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        <dependency>
-            <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-spring-boot-starter</artifactId>
-            <version>${sa.token.version}</version>
-        </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>

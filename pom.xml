@@ -31,6 +31,7 @@
         <hutool.version>5.8.11</hutool.version>
         <mysql.version>8.0.23</mysql.version>
         <sa.token.version>1.37.0</sa.token.version>
+        <aspectj>1.9.4</aspectj>
     </properties>
 
     <!-- 对依赖包进行管理 -->
@@ -70,7 +71,19 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj}</version>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
     <dependencies>
         <!-- lombok 管理 -->
@@ -85,6 +98,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
 
     </dependencies>
 

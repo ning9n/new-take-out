@@ -1,10 +1,11 @@
 package com.sky.user.controller;
 
 
-import com.sky.user.domain.VO.EmployeeLoginVO;
-import com.sky.user.domain.VO.EmployeeVO;
+import com.sky.user.domain.dto.EmployeeUpdateDTO;
+import com.sky.user.domain.vo.EmployeeLoginVO;
+import com.sky.user.domain.vo.EmployeeVO;
 import com.sky.user.domain.dto.EditPasswordDTO;
-import com.sky.user.domain.dto.EmployeeDTO;
+import com.sky.user.domain.dto.EmployeeInsertDTO;
 import com.sky.user.domain.dto.EmployeeLoginDTO;
 import com.sky.user.domain.po.Employee;
 import com.sky.user.service.EmployeeService;
@@ -23,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("admin/employee")
 public class EmployeeController {
-    EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     /**
      * 员工登录
@@ -75,25 +76,42 @@ public class EmployeeController {
      * @param page 页码
      * @param pageSize 每页记录数
      */
-    @ApiOperation( "启用、禁用员工账号")
+    @ApiOperation( "分页查询")
     @GetMapping("page")
     public SkyResult<PageResult<Employee>> page(String name, Integer page, Integer pageSize){
         return SkyResult.success(employeeService.getPage(name,page,pageSize));
     }
-    @ApiOperation("启用、禁用员工账号")
+
+    /**
+     * 新增员工
+     * @param dto 员工数据：身份证号、姓名、电话号码、性别、用户名、员工权限、密码
+     * @return 成功/失败
+     */
+    @ApiOperation("新增员工")
     @PostMapping
-    public SkyResult<String> insert(@RequestBody EmployeeDTO dto){
+    public SkyResult<String> insert(@RequestBody EmployeeInsertDTO dto){
         employeeService.insertEmployee(dto);
         return SkyResult.success();
     }
-    @ApiOperation( "启用、禁用员工账号")
+
+    /**
+     * 根据id查询
+     * @param id id
+     * @return 查询结果
+     */
+    @ApiOperation( "根据id查询")
     @GetMapping("{id}")
     public SkyResult<EmployeeVO> getById(@PathVariable Long id){
         return SkyResult.success(employeeService.getEmployeeById(id));
     }
-    @ApiOperation("启用、禁用员工账号")
+    /**
+     * 更新员工
+     * @param dto 员工数据：身份证号、姓名、电话号码、性别、用户名、员工权限、密码
+     * @return 成功/失败
+     */
+    @ApiOperation("更新员工数据")
     @PutMapping
-    public SkyResult<String> update(@RequestBody EmployeeDTO dto){
+    public SkyResult<String> update(@RequestBody EmployeeUpdateDTO dto){
         employeeService.updateEmployee(dto);
         return SkyResult.success();
     }
